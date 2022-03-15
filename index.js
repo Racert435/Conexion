@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Escuchamos el click del botón
   const $boton = document.querySelector("#imprimir1");
   $boton.addEventListener("click", () => {
-    const $elementoParaConvertir = document.querySelector("#tabla"); // <-- Aquí puedes elegir cualquier elemento del DOM
+    const $elementoParaConvertir = document.querySelector("#tabla5"); // <-- Aquí puedes elegir cualquier elemento del DOM
     html2pdf()
       .set({
         margin: 1,
