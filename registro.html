@@ -12,8 +12,8 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.html">Conafe</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html"><img id="logo" src="img/conafe-logo.png" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">Pagina principal</a>
+          <a class="nav-link" href="index.html">Pagina Principal</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="login.html">Iniciar sesion</a>
@@ -33,25 +33,28 @@
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container my-5">
     
-      <h1 >Registrate</h1>
+      <h1  >Registrate</h1>
    
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Nombre : </span>
+      <div class="container my-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
         <input type="text" id="username" name="username" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Correo : </span>
+      <div class="container my-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Correo</span>
         <input type="text" id="email" name="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Contraseña : </span>
+      <div class="container my-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Contraseña</span>
         <input type="password" id="password" name="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
       
+      
+      
+      <div class="container my-3">
       <input class="btn btn-primary"  type="submit" id='sighUp' name="sighUp_submit" value="Registrar" />
-  
+    </div>
     
     
     
@@ -88,7 +91,9 @@
 
   //Nuevo registro
 
-  sighUp.addEventListener('click',(e) => {
+
+
+    sighUp.addEventListener('click',(e) => {
   
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
@@ -118,6 +123,8 @@
     });
 
 });
+  
+  
   
   </script>
   
