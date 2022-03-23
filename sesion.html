@@ -59,13 +59,22 @@
         <h6>Fecha de registro:</h6>
         <input  id="fecha" type="date" /> 
       </div>
-        <button
+        <!-- <button
           id="imprimir2"
           class="btn btn-success"
           type="button"
           onclick="myFunction()"
         >
           Aceptar
+        </button> -->
+
+        <button
+        id="imprimir2"
+          class="btn btn-success"
+         
+          onclick="guardar()"
+        >
+          Calcular y Registrar
         </button>
   
         <button
@@ -77,14 +86,7 @@
           Repartir
         </button>
 
-        <button
-        id="imprimir2"
-          class="btn btn-info"
-         
-          onclick="guardar()"
-        >
-          Guardar
-        </button>
+        
      
   
         <div  class="container">
@@ -125,7 +127,7 @@
                 </td>
               </tr>
               <tr>
-                <th scope="col">Total:</th>
+                <th scope="col">Total de recibos:</th>
                 <td>
                   <p id="Distribuir6"></p>
                 </td>
