@@ -1,6 +1,6 @@
 #logo{
     width: auto;
-    height: 65px;
+    height: 50px;
 }
 
 #login{
@@ -11,3 +11,37 @@ h1{
     text-align: center;
 }
 
+#logo2{
+    
+    width: auto;
+    height: 50px;
+    display:block;
+    margin:auto;
+    
+}
+
+
+  .bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+  }
+  
+  ul {
+    display: flex;
+    justify-content: center;
+  }
+  
+  li {
+    margin: 0 .75rem;
+  }
+
+  #foot{
+    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+   
+  }
+
+  
