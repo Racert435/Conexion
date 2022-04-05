@@ -1,75 +1,72 @@
 // Initialize Cloud Firestore through Firebase
 firebase.initializeApp({
-    apiKey: "AIzaSyDpTvGJDW4ta3rJGcj05N3cpwtDIg5Blfs",
-    authDomain: "auto-3576f.firebaseapp.com",
-    projectId: "auto-3576f"
-  });
-  
-  var db = firebase.firestore();
+  apiKey: "AIzaSyDpTvGJDW4ta3rJGcj05N3cpwtDIg5Blfs",
+  authDomain: "auto-3576f.firebaseapp.com",
+  projectId: "auto-3576f",
+});
 
- 
+var db = firebase.firestore();
 
-function guardar(){
-    
-    
-    var Region=document.getElementById('region').value;
-    var x=document.getElementById('num1').value;
-    var y=document.getElementById('num2').value;
-    var Fecha=document.getElementById('fecha').value;
-    var Grado="Preescolar";
+function guardar() {
+  var Region = document.getElementById("region").value;
+  var x = document.getElementById("num1").value;
+  var y = document.getElementById("num2").value;
+  var Fecha = document.getElementById("fecha").value;
+  var Municipio = document.getElementById("municipio").value;
+  var Clave = document.getElementById("clave").value;
+  var Grado = "Educación Preescolar";
 
-    var numpadre = Math.floor(x / y);
-    var numhijo = Math.floor(x / y + 1);
-    var variable = Math.floor(numpadre * y);
-    var numhijo1 = Math.floor(x - variable);
-    var numhijo2 = Math.floor(y - numhijo1);
-    var variable2 = Math.floor(numhijo1 * numhijo);
-    var variable3 = Math.floor(numhijo2 * numpadre);
-    var Comprobacion = Math.floor(variable2 + variable3);
-    var Comprobacion2 = Math.floor(y);
+  var numpadre = Math.floor(x / y);
+  var numhijo = Math.floor(x / y + 1);
+  var variable = Math.floor(numpadre * y);
+  var numhijo1 = Math.floor(x - variable);
+  var numhijo2 = Math.floor(y - numhijo1);
+  var variable2 = Math.floor(numhijo1 * numhijo);
+  var variable3 = Math.floor(numhijo2 * numpadre);
+  var Comprobacion = Math.floor(variable2 + variable3);
+  var Comprobacion2 = Math.floor(y);
 
-    text = numpadre;
-    text1 = numhijo;
-    text2 = numhijo1;
-    text3 = numhijo2;
-    text4 = variable2;
-    text5 = variable3;
-    text6 = Comprobacion;
-    text7 = Comprobacion2;
+  text = numpadre;
+  text1 = numhijo;
+  text2 = numhijo1;
+  text3 = numhijo2;
+  text4 = variable2;
+  text5 = variable3;
+  text6 = Comprobacion;
+  text7 = Comprobacion2;
 
-
-    db.collection("Material de Preescolar").add({
-        Grado:Grado,
-        Region:Region,
-        Material: x,
-        Comunidades: y,
-        Fecha: Fecha,
-        text : numpadre,
-        text1 : numhijo,
-        text2 : numhijo1,
-        text3 : numhijo2,
-        text4 : variable2,
-        text5 : variable3,
-        text6 : Comprobacion,
-        text7 : Comprobacion2,
-        
+  db.collection("Material de Preescolar")
+    .add({
+      Grado: Grado,
+      Region: Region,
+      Clave: Clave,
+      Municipio: Municipio,
+      Material: x,
+      Comunidades: y,
+      Fecha: Fecha,
+      text: numpadre,
+      text1: numhijo,
+      text2: numhijo1,
+      text3: numhijo2,
+      text4: variable2,
+      text5: variable3,
+      text6: Comprobacion,
+      text7: Comprobacion2,
     })
 
-    
-   
-  
     .then((docRef) => {
-        alert("Registro guardado exitosamente", docRef.id);
-       
-        document.getElementById('region').value = '';
-        document.getElementById('num1').value = '';
-        document.getElementById('num2').value = '';
-        document.getElementById('fecha').value = '';
+      alert("Registro guardado exitosamente", docRef.id);
+
+      document.getElementById("region").value = "";
+      document.getElementById("num1").value = "";
+      document.getElementById("num2").value = "";
+      document.getElementById("fecha").value = "";
+      document.getElementById("municipio").value = "";
+      document.getElementById("clave").value = "";
     })
     .catch((error) => {
-        console.error("Error al guardar el registro: ", error);
+      console.error("Error al guardar el registro: ", error);
     });
-
 
   document.getElementById("Cargando").innerHTML = text;
   document.getElementById("Distribuir").innerHTML = text1;
@@ -81,14 +78,14 @@ function guardar(){
   document.getElementById("Distribuir6").innerHTML = text7;
 }
 
-function guardar1(){
-    
-    
-  var Region=document.getElementById('region').value;
-  var x=document.getElementById('num1').value;
-  var y=document.getElementById('num2').value;
-  var Fecha=document.getElementById('fecha').value;
-  var Grado="Primaria";
+function guardar1() {
+  var Region = document.getElementById("region").value;
+  var x = document.getElementById("num1").value;
+  var y = document.getElementById("num2").value;
+  var Fecha = document.getElementById("fecha").value;
+  var Municipio = document.getElementById("municipio").value;
+  var Clave = document.getElementById("clave").value;
+  var Grado = "Educación Primaria";
 
   var numpadre = Math.floor(x / y);
   var numhijo = Math.floor(x / y + 1);
@@ -109,321 +106,365 @@ function guardar1(){
   text6 = Comprobacion;
   text7 = Comprobacion2;
 
-
-  db.collection("Material de Primaria").add({
-      Grado:Grado,
-      Region:Region,
+  db.collection("Material de Primaria")
+    .add({
+      Grado: Grado,
+      Region: Region,
+      Clave: Clave,
+      Municipio: Municipio,
       Material: x,
       Comunidades: y,
       Fecha: Fecha,
-      text : numpadre,
-      text1 : numhijo,
-      text2 : numhijo1,
-      text3 : numhijo2,
-      text4 : variable2,
-      text5 : variable3,
-      text6 : Comprobacion,
-      text7 : Comprobacion2,
-      
-  })
+      text: numpadre,
+      text1: numhijo,
+      text2: numhijo1,
+      text3: numhijo2,
+      text4: variable2,
+      text5: variable3,
+      text6: Comprobacion,
+      text7: Comprobacion2,
+    })
 
+    .then((docRef) => {
+      alert("Registro guardado exitosamente", docRef.id);
+
+      document.getElementById("region").value = "";
+      document.getElementById("num1").value = "";
+      document.getElementById("num2").value = "";
+      document.getElementById("fecha").value = "";
+      document.getElementById("municipio").value = "";
+      document.getElementById("clave").value = "";
+    })
+    .catch((error) => {
+      console.error("Error al guardar el registro: ", error);
+    });
+
+  document.getElementById("Cargando").innerHTML = text;
+  document.getElementById("Distribuir").innerHTML = text1;
+  document.getElementById("Distribuir1").innerHTML = text2;
+  document.getElementById("Distribuir2").innerHTML = text3;
+  document.getElementById("Distribuir3").innerHTML = text4;
+  document.getElementById("Distribuir4").innerHTML = text5;
+  document.getElementById("Distribuir5").innerHTML = text6;
+  document.getElementById("Distribuir6").innerHTML = text7;
+}
+
+function guardar2() {
+  var Region = document.getElementById("region").value;
+  var x = document.getElementById("num1").value;
+  var y = document.getElementById("num2").value;
+  var Fecha = document.getElementById("fecha").value;
+  var Municipio = document.getElementById("municipio").value;
+  var Clave = document.getElementById("clave").value;
+  var Grado = "Educación Secundaria";
+
+  var numpadre = Math.floor(x / y);
+  var numhijo = Math.floor(x / y + 1);
+  var variable = Math.floor(numpadre * y);
+  var numhijo1 = Math.floor(x - variable);
+  var numhijo2 = Math.floor(y - numhijo1);
+  var variable2 = Math.floor(numhijo1 * numhijo);
+  var variable3 = Math.floor(numhijo2 * numpadre);
+  var Comprobacion = Math.floor(variable2 + variable3);
+  var Comprobacion2 = Math.floor(y);
+
+  text = numpadre;
+  text1 = numhijo;
+  text2 = numhijo1;
+  text3 = numhijo2;
+  text4 = variable2;
+  text5 = variable3;
+  text6 = Comprobacion;
+  text7 = Comprobacion2;
+
+  db.collection("Material de Secundaria")
+    .add({
+      Grado: Grado,
+      Region: Region,
+      Clave: Clave,
+      Municipio: Municipio,
+      Material: x,
+      Comunidades: y,
+      Fecha: Fecha,
+      text: numpadre,
+      text1: numhijo,
+      text2: numhijo1,
+      text3: numhijo2,
+      text4: variable2,
+      text5: variable3,
+      text6: Comprobacion,
+      text7: Comprobacion2,
+    })
+
+    .then((docRef) => {
+      alert("Registro guardado exitosamente", docRef.id);
+
+      document.getElementById("region").value = "";
+      document.getElementById("num1").value = "";
+      document.getElementById("num2").value = "";
+      document.getElementById("fecha").value = "";
+      document.getElementById("municipio").value = "";
+      document.getElementById("clave").value = "";
+    })
+    .catch((error) => {
+      console.error("Error al guardar el registro: ", error);
+    });
+
+  document.getElementById("Cargando").innerHTML = text;
+  document.getElementById("Distribuir").innerHTML = text1;
+  document.getElementById("Distribuir1").innerHTML = text2;
+  document.getElementById("Distribuir2").innerHTML = text3;
+  document.getElementById("Distribuir3").innerHTML = text4;
+  document.getElementById("Distribuir4").innerHTML = text5;
+  document.getElementById("Distribuir5").innerHTML = text6;
+  document.getElementById("Distribuir6").innerHTML = text7;
+}
+
+// Primera Tabla
+var tabla = document.getElementById("tabla");
+db.collection("Material de Preescolar")
+  .get()
+  .then((querySnapshot) => {
+    tabla.innerHTML = "";
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      tabla.innerHTML += `
+        <div  class="table-responsive">
+        <table  class="table table-dark table-success table-hover  table-bordered">
+
+        <tr>
+        <th scope="col">Localidad</th>
+        <th scope="col">Comunidades</th>
+        <th scope="col">Material</th>
+        <th scope="col">Acumulado</th>
+        <th scope="col">Fecha de registro</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+       
+      </tr>
+ 
+  <tr>
   
- 
+  <td scope="row">${doc.data().Region}</td>
+  <td>
+    <p>${doc.data().text2}</p>
+  </td>
+  <td>
+    <p >${doc.data().text1}</p>
+  </td>
+  <td>
+    <p>${doc.data().text4}</p>
+  </td>
+  <td>
+    <p>${doc.data().Fecha}</p>
+  </td>
+  <td><button class="btn btn-danger" onclick="Borrar('${
+    doc.id
+  }');">Eliminar</button></td>
+  <td><button class="btn btn-warning" onclick="Editar('${doc.id}','${
+        doc.data().Region
+      }','${doc.data().Fecha}')">Editar</button}</td>
+</tr>
+<tr>
+  <th>${doc.data().Grado}</th>
+  <td>
+    <p>${doc.data().text3}</p>
+  </td>
+  <td>
+    <p>${doc.data().text}</p>
+  </td>
+  <td>
+    <p>${doc.data().text5}</p>
+  </td>
+</tr>
+<tr>
+  <th scope="col">Total de recibos:</th>
+  <td>
+    <p>${doc.data().text7}</p>
+  </td>
 
-  .then((docRef) => {
-      alert("Registro guardado exitosamente", docRef.id);
-     
-      document.getElementById('region').value = '';
-      document.getElementById('num1').value = '';
-      document.getElementById('num2').value = '';
-      document.getElementById('fecha').value = '';
-  })
-  .catch((error) => {
-      console.error("Error al guardar el registro: ", error);
+  <th>Total de material:</th>
+  <td>
+    <p>${doc.data().text6}</p>
+  </td>
+</tr>
+<tr>
+        </table>
+        </div>
+       
+          
+        `;
+    });
   });
+// fin de Primera Tabla
 
+// segunda tabla
+var tabl = document.getElementById("tabl");
+db.collection("Material de Primaria")
+  .get()
+  .then((querySnapshot) => {
+    tabl.innerHTML = "";
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      tabl.innerHTML += `
 
-document.getElementById("Cargando").innerHTML = text;
-document.getElementById("Distribuir").innerHTML = text1;
-document.getElementById("Distribuir1").innerHTML = text2;
-document.getElementById("Distribuir2").innerHTML = text3;
-document.getElementById("Distribuir3").innerHTML = text4;
-document.getElementById("Distribuir4").innerHTML = text5;
-document.getElementById("Distribuir5").innerHTML = text6;
-document.getElementById("Distribuir6").innerHTML = text7;
-}
-
-function guardar2(){
-    
-    
-  var Region=document.getElementById('region').value;
-  var x=document.getElementById('num1').value;
-  var y=document.getElementById('num2').value;
-  var Fecha=document.getElementById('fecha').value;
-  var Grado="Secundaria";
-
-  var numpadre = Math.floor(x / y);
-  var numhijo = Math.floor(x / y + 1);
-  var variable = Math.floor(numpadre * y);
-  var numhijo1 = Math.floor(x - variable);
-  var numhijo2 = Math.floor(y - numhijo1);
-  var variable2 = Math.floor(numhijo1 * numhijo);
-  var variable3 = Math.floor(numhijo2 * numpadre);
-  var Comprobacion = Math.floor(variable2 + variable3);
-  var Comprobacion2 = Math.floor(y);
-
-  text = numpadre;
-  text1 = numhijo;
-  text2 = numhijo1;
-  text3 = numhijo2;
-  text4 = variable2;
-  text5 = variable3;
-  text6 = Comprobacion;
-  text7 = Comprobacion2;
-
-
-  db.collection("Material de Secundaria").add({
-      Grado:Grado,
-      Region:Region,
-      Material: x,
-      Comunidades: y,
-      Fecha: Fecha,
-      text : numpadre,
-      text1 : numhijo,
-      text2 : numhijo1,
-      text3 : numhijo2,
-      text4 : variable2,
-      text5 : variable3,
-      text6 : Comprobacion,
-      text7 : Comprobacion2,
-      
-  })
-
+        <div  class="table-responsive">
+        <table  class="table table-dark table-success table-hover  table-bordered">
+        <tr>
+        <th scope="col">Localidad</th>
+        <th scope="col">Comunidades</th>
+        <th scope="col">Material</th>
+        <th scope="col">Acumulado</th>
+        <th scope="col">Fecha de registro</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+       
+      </tr>
  
- 
+  <tr>
+  
+  <td scope="row">${doc.data().Region}</td>
+  <td>
+    <p>${doc.data().text2}</p>
+  </td>
+  <td>
+    <p >${doc.data().text1}</p>
+  </td>
+  <td>
+    <p>${doc.data().text4}</p>
+  </td>
+  <td>
+    <p>${doc.data().Fecha}</p>
+  </td>
+  <td><button class="btn btn-danger" onclick="Borrar2('${
+    doc.id
+  }');">Eliminar</button></td>
+  <td><button class="btn btn-warning" onclick="Editar2('${doc.id}','${
+        doc.data().Region
+      }','${doc.data().Fecha}')">Editar</button}</td>
+</tr>
+<tr>
+  <th>${doc.data().Grado}</th>
+  <td>
+    <p>${doc.data().text3}</p>
+  </td>
+  <td>
+    <p>${doc.data().text}</p>
+  </td>
+  <td>
+    <p>${doc.data().text5}</p>
+  </td>
+</tr>
+<tr>
+  <th scope="col">Total de recibos:</th>
+  <td>
+    <p>${doc.data().text7}</p>
+  </td>
 
-  .then((docRef) => {
-      alert("Registro guardado exitosamente", docRef.id);
-     
-      document.getElementById('region').value = '';
-      document.getElementById('num1').value = '';
-      document.getElementById('num2').value = '';
-      document.getElementById('fecha').value = '';
-  })
-  .catch((error) => {
-      console.error("Error al guardar el registro: ", error);
+  <th>Total de material:</th>
+  <td>
+    <p>${doc.data().text6}</p>
+  </td>
+</tr>
+<tr>
+        
+        </table>
+        </div>
+       
+           
+        `;
+    });
   });
+// fin de segunda tabla
 
-
-document.getElementById("Cargando").innerHTML = text;
-document.getElementById("Distribuir").innerHTML = text1;
-document.getElementById("Distribuir1").innerHTML = text2;
-document.getElementById("Distribuir2").innerHTML = text3;
-document.getElementById("Distribuir3").innerHTML = text4;
-document.getElementById("Distribuir4").innerHTML = text5;
-document.getElementById("Distribuir5").innerHTML = text6;
-document.getElementById("Distribuir6").innerHTML = text7;
-}
-
-//Leer base
-var tabla=document.getElementById('tabla');
-db.collection("Material de Preescolar").get().then((querySnapshot) => {
-    tabla.innerHTML='';
+// tercera tabla
+var tab = document.getElementById("tab");
+db.collection("Material de Secundaria")
+  .get()
+  .then((querySnapshot) => {
+    tab.innerHTML = "";
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-        tabla.innerHTML += `
+      console.log(`${doc.id} => ${doc.data()}`);
+      tab.innerHTML += `
        
-            <tr>
-              <th scope="col">Localidad</th>
-              <th scope="col">Comunidades</th>
-              <th scope="col">Material</th>
-              <th scope="col">Acumulado</th>
-              <th scope="col">Fecha de registro</th>
-              <th scope="col">Editar</th>
-              <th scope="col">Eliminar</th>
-             
-            </tr>
-       
+        <div  class="table-responsive">
+        <table  class="table table-dark table-success table-hover  table-bordered">
         <tr>
+        <th scope="col">Localidad</th>
+        <th scope="col">Comunidades</th>
+        <th scope="col">Material</th>
+        <th scope="col">Acumulado</th>
+        <th scope="col">Fecha de registro</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+       
+      </tr>
+ 
+  <tr>
+  
+  <td scope="row">${doc.data().Region}</td>
+  <td>
+    <p>${doc.data().text2}</p>
+  </td>
+  <td>
+    <p >${doc.data().text1}</p>
+  </td>
+  <td>
+    <p>${doc.data().text4}</p>
+  </td>
+  <td>
+    <p>${doc.data().Fecha}</p>
+  </td>
+  <td><button class="btn btn-danger" onclick="Borrar3('${
+    doc.id
+  }');">Eliminar</button></td>
+  <td><button class="btn btn-warning" onclick="Editar3('${doc.id}','${
+        doc.data().Region
+      }','${doc.data().Fecha}')">Editar</button}</td>
+</tr>
+<tr>
+  <th>${doc.data().Grado}</th>
+  <td>
+    <p>${doc.data().text3}</p>
+  </td>
+  <td>
+    <p>${doc.data().text}</p>
+  </td>
+  <td>
+    <p>${doc.data().text5}</p>
+  </td>
+</tr>
+<tr>
+  <th scope="col">Total de recibos:</th>
+  <td>
+    <p>${doc.data().text7}</p>
+  </td>
+
+  <th>Total de material:</th>
+  <td>
+    <p>${doc.data().text6}</p>
+  </td>
+</tr>
+<tr>
         
-        <td scope="row">${doc.data().Region}</td>
-        <td>
-          <p>${doc.data().text2}</p>
-        </td>
-        <td>
-          <p >${doc.data().text1}</p>
-        </td>
-        <td>
-          <p>${doc.data().text4}</p>
-        </td>
-        <td>
-          <p>${doc.data().Fecha}</p>
-        </td>
-        <td><button class="btn btn-danger" onclick="Borrar('${doc.id}');">Eliminar</button></td>
-        <td><button class="btn btn-warning" onclick="Editar('${doc.id}','${doc.data().Region}','${doc.data().Fecha}')">Editar</button}</td>
-      </tr>
-      <tr>
-        <th>${doc.data().Grado}</th>
-        <td>
-          <p>${doc.data().text3}</p>
-        </td>
-        <td>
-          <p>${doc.data().text}</p>
-        </td>
-        <td>
-          <p>${doc.data().text5}</p>
-        </td>
-      </tr>
-      <tr>
-        <th scope="col">Total de recibos:</th>
-        <td>
-          <p>${doc.data().text7}</p>
-        </td>
+        </table>
+        </div>
 
-        <th>Total de material:</th>
-        <td>
-          <p>${doc.data().text6}</p>
-        </td>
-      </tr>
-      <tr>
-        `
+           
+        `;
     });
-});
+  });
+// fin de tercera tabla
 
-var tabl=document.getElementById('tabl');
-db.collection("Material de Primaria").get().then((querySnapshot) => {
-    tabl.innerHTML='';
+// cuarta tabla
+var tabla2 = document.getElementById("tabla2");
+db.collection("Material de Educacion Basica")
+  .get()
+  .then((querySnapshot) => {
+    tabla2.innerHTML = "";
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-        tabl.innerHTML += `
-       
-            <tr>
-              <th scope="col">Localidad</th>
-              <th scope="col">Comunidades</th>
-              <th scope="col">Material</th>
-              <th scope="col">Acumulado</th>
-              <th scope="col">Fecha de registro</th>
-              <th scope="col">Editar</th>
-              <th scope="col">Eliminar</th>
-             
-            </tr>
-       
-        <tr>
-        
-        <td scope="row">${doc.data().Region}</td>
-        <td>
-          <p>${doc.data().text2}</p>
-        </td>
-        <td>
-          <p >${doc.data().text1}</p>
-        </td>
-        <td>
-          <p>${doc.data().text4}</p>
-        </td>
-        <td>
-          <p>${doc.data().Fecha}</p>
-        </td>
-        <td><button class="btn btn-danger" onclick="Borrar2('${doc.id}');">Eliminar</button></td>
-        <td><button class="btn btn-warning" onclick="Editar2('${doc.id}','${doc.data().Region}','${doc.data().Fecha}')">Editar</button}</td>
-      </tr>
-      <tr>
-        <th>${doc.data().Grado}</th>
-        <td>
-          <p>${doc.data().text3}</p>
-        </td>
-        <td>
-          <p>${doc.data().text}</p>
-        </td>
-        <td>
-          <p>${doc.data().text5}</p>
-        </td>
-      </tr>
-      <tr>
-        <th scope="col">Total de recibos:</th>
-        <td>
-          <p>${doc.data().text7}</p>
-        </td>
-
-        <th>Total de material:</th>
-        <td>
-          <p>${doc.data().text6}</p>
-        </td>
-      </tr>
-      <tr>
-        `
-    });
-});
-
-var tab=document.getElementById('tab');
-db.collection("Material de Secundaria").get().then((querySnapshot) => {
-    tab.innerHTML='';
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-        tab.innerHTML += `
-       
-            <tr>
-              <th scope="col">Localidad</th>
-              <th scope="col">Comunidades</th>
-              <th scope="col">Material</th>
-              <th scope="col">Acumulado</th>
-              <th scope="col">Fecha de registro</th>
-              <th scope="col">Editar</th>
-              <th scope="col">Eliminar</th>
-             
-            </tr>
-       
-        <tr>
-        
-        <td scope="row">${doc.data().Region}</td>
-        <td>
-          <p>${doc.data().text2}</p>
-        </td>
-        <td>
-          <p >${doc.data().text1}</p>
-        </td>
-        <td>
-          <p>${doc.data().text4}</p>
-        </td>
-        <td>
-          <p>${doc.data().Fecha}</p>
-        </td>
-        <td><button class="btn btn-danger" onclick="Borrar3('${doc.id}');">Eliminar</button></td>
-        <td><button class="btn btn-warning" onclick="Editar3('${doc.id}','${doc.data().Region}','${doc.data().Fecha}')">Editar</button}</td>
-      </tr>
-      <tr>
-        <th>${doc.data().Grado}</th>
-        <td>
-          <p>${doc.data().text3}</p>
-        </td>
-        <td>
-          <p>${doc.data().text}</p>
-        </td>
-        <td>
-          <p>${doc.data().text5}</p>
-        </td>
-      </tr>
-      <tr>
-        <th scope="col">Total de recibos:</th>
-        <td>
-          <p>${doc.data().text7}</p>
-        </td>
-
-        <th>Total de material:</th>
-        <td>
-          <p>${doc.data().text6}</p>
-        </td>
-      </tr>
-      <tr>
-        `
-    });
-});
-
-var tabla2=document.getElementById('tabla2');
-db.collection("Material de Educacion Basica").get().then((querySnapshot) => {
-    tabla2.innerHTML='';
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-        tabla2.innerHTML += ` <tr class="table-active">
+      console.log(`${doc.id} => ${doc.data()}`);
+      tabla2.innerHTML += ` <tr class="table-active">
         <th scope="col">Localidad</th>
         <th scope="col">Comunidades</th>
         <th scope="col">Material</th>
@@ -475,373 +516,489 @@ db.collection("Material de Educacion Basica").get().then((querySnapshot) => {
   </td>
 </tr>
 
-`
+`;
     });
+  });
+// fin de cuarta tabla
+
+// quinta tabla
+var tabla3 = document.getElementById("tabla3");
+db.collection("Material de Preescolar")
+  .get()
+  .then((querySnapshot) => {
+    tabla3.innerHTML = "";
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      tabla3.innerHTML += `
+
+          <div  class="table-responsive">
+          <table  class="table table-success table-hover  table-bordered">
+          <thead>
+          <tr class="table-active">
+        
+          <th scope="col">Localidad</th>
+          <th scope="col">Comunidades</th>
+          <th scope="col">Material</th>
+          <th scope="col">Acumulado</th>
+        
+          
+         
+        </tr>
+        </thead>
+        <tbody>
+    <tr>
+    
+    <td >${doc.data().Region}</td>
+    <td>
+      <p>${doc.data().text2}</p>
+    </td>
+    <td>
+      <p >${doc.data().text1}</p>
+    </td>
+    <td>
+      <p>${doc.data().text4}</p>
+    </td>
+    
+    
+  </tr>
+  <tr>
+    <th></th>
+    <td>
+      <p>${doc.data().text3}</p>
+    </td>
+    <td>
+      <p>${doc.data().text}</p>
+    </td>
+    <td>
+      <p>${doc.data().text5}</p>
+    </td>
+    
+  </tr>
+  <tr>
+    <th scope="col">Total de recibos:</th>
+    <td>
+      <p>${doc.data().text7}</p>
+    </td>
+    
+  
+    <th>Total de material:</th>
+    <td>
+      <p>${doc.data().text6}</p>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="col">Municipio: </th>
+    <td>
+      <p>${doc.data().Municipio}</p>
+    </td>
+    
+  
+    <th>Clave CCT: </th>
+    <td>
+      <p>${doc.data().Clave}</p>
+    </td>
+  </tr>
+
+  <tr>
+  <th scope="col">Destinatario: </th>
+  <td>
+    <a href="Preescolar.html">${doc.data().Grado}</a>
+  </td>
+  
+
+  <th>Fecha de registro: </th>
+  <td>
+    <p>${doc.data().Fecha}</p>
+  </td>
+</tr>
+</tbody>
+</table>
+</div>
+  `;
+    });
+  });
+// fin de quinta tabla
+
+//sexta tabla
+var tabla4 = document.getElementById("tabla4");
+db.collection("Material de Primaria")
+  .get()
+  .then((querySnapshot) => {
+    tabla4.innerHTML = "";
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      tabla4.innerHTML += ` 
+          <div class="table-responsive">
+                
+          <table  class="table table-success table-hover  table-bordered">
+          <tr class="table-active">
+        
+          <th scope="col">Localidad</th>
+          <th scope="col">Comunidades</th>
+          <th scope="col">Material</th>
+          <th scope="col">Acumulado</th>
+        
+          
+         
+        </tr>
+   
+    <tr>
+    
+    <td >${doc.data().Region}</td>
+    <td>
+      <p>${doc.data().text2}</p>
+    </td>
+    <td>
+      <p >${doc.data().text1}</p>
+    </td>
+    <td>
+      <p>${doc.data().text4}</p>
+    </td>
+    
+    
+  </tr>
+  <tr>
+    <th></th>
+    <td>
+      <p>${doc.data().text3}</p>
+    </td>
+    <td>
+      <p>${doc.data().text}</p>
+    </td>
+    <td>
+      <p>${doc.data().text5}</p>
+    </td>
+    
+  </tr>
+  <tr>
+    <th scope="col">Total de recibos:</th>
+    <td>
+      <p>${doc.data().text7}</p>
+    </td>
+    
+  
+    <th>Total de material:</th>
+    <td>
+      <p>${doc.data().text6}</p>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="col">Municipio: </th>
+    <td>
+      <p>${doc.data().Municipio}</p>
+    </td>
+    
+  
+    <th>Clave CCT: </th>
+    <td>
+      <p>${doc.data().Clave}</p>
+    </td>
+  </tr>
+
+  <tr>
+  <th scope="col">Destinatario: </th>
+  <td>
+    <a href="Primaria.html">${doc.data().Grado}</a>
+  </td>
+  
+
+  <th>Fecha de registro: </th>
+  <td>
+    <p>${doc.data().Fecha}</p>
+  </td>
+</tr>
+ 
+           
+          </table>
+  
+        </div>
+          
+        
+  
+  `;
+    });
+  });
+// fin de sexta tabla
+
+//septima tabla
+var tabla6 = document.getElementById("tabla6");
+db.collection("Material de Secundaria")
+  .get()
+  .then((querySnapshot) => {
+    tabla6.innerHTML = "";
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      tabla6.innerHTML += ` 
+
+          <div class="table-responsive">
+                
+          <table class="table table-success table-hover  table-bordered">
+          <tr  class="table-active">
+        
+          <th scope="col">Localidad</th>
+          <th scope="col">Comunidades</th>
+          <th scope="col">Material</th>
+          <th scope="col">Acumulado</th>
+        
+          
+         
+        </tr>
+   
+    <tr>
+    
+    <td >${doc.data().Region}</td>
+    <td>
+      <p>${doc.data().text2}</p>
+    </td>
+    <td>
+      <p >${doc.data().text1}</p>
+    </td>
+    <td>
+      <p>${doc.data().text4}</p>
+    </td>
+    
+    
+  </tr>
+  <tr>
+    <th></th>
+    <td>
+      <p>${doc.data().text3}</p>
+    </td>
+    <td>
+      <p>${doc.data().text}</p>
+    </td>
+    <td>
+      <p>${doc.data().text5}</p>
+    </td>
+    
+  </tr>
+  <tr>
+    <th scope="col">Total de recibos:</th>
+    <td>
+      <p>${doc.data().text7}</p>
+    </td>
+    
+  
+    <th>Total de material:</th>
+    <td>
+      <p>${doc.data().text6}</p>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="col">Municipio: </th>
+    <td>
+      <p>${doc.data().Municipio}</p>
+    </td>
+    
+  
+    <th>Clave CCT: </th>
+    <td>
+      <p>${doc.data().Clave}</p>
+    </td>
+  </tr>
+
+  <tr>
+  <th scope="col">Destinatario: </th>
+  <td>
+    <a href="Secundaria.html">${doc.data().Grado}</a>
+  </td>
+  
+
+  <th>Fecha de registro: </th>
+  <td>
+    <p>${doc.data().Fecha}</p>
+  </td>
+</tr>
+           
+          </table>
+  
+        </div>
+          
+          
+ 
+  `;
+    });
+  });
+//fin de septima tabla
+
+// busqueda por palabra clave
+$(document).ready(function () {
+  $("#tableSearch").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#tabla3 table").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+  });
 });
 
-
-  var tabla3=document.getElementById('tabla3');
-  db.collection("Material de Preescolar").get().then((querySnapshot) => {
-      tabla3.innerHTML='';
-      querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${doc.data()}`);
-          tabla3.innerHTML += ` <tr class="table-active">
-         
-          <th scope="col">Localidad</th>
-          <th scope="col">Comunidades</th>
-          <th scope="col">Material</th>
-          <th scope="col">Acumulado</th>
-          <th scope="col">Fecha de registro</th>
-          
-         
-        </tr>
-   
-    <tr>
-    
-    <td scope="row">${doc.data().Region}</td>
-    <td>
-      <p>${doc.data().text2}</p>
-    </td>
-    <td>
-      <p >${doc.data().text1}</p>
-    </td>
-    <td>
-      <p>${doc.data().text4}</p>
-    </td>
-    
-    
-  </tr>
-  <tr>
-    <th>${doc.data().Grado}</th>
-    <td>
-      <p>${doc.data().text3}</p>
-    </td>
-    <td>
-      <p>${doc.data().text}</p>
-    </td>
-    <td>
-      <p>${doc.data().text5}</p>
-    </td>
-    <td>
-      <p>${doc.data().Fecha}</p>
-    </td>
-  </tr>
-  <tr>
-    <th scope="col">Total de recibos:</th>
-    <td>
-      <p>${doc.data().text7}</p>
-    </td>
-  
-    <th>Total de material:</th>
-    <td>
-      <p>${doc.data().text6}</p>
-    </td>
-  </tr>
-  
-  `
-      });
-  });
-  
-  var tabla4=document.getElementById('tabla4');
-  db.collection("Material de Primaria").get().then((querySnapshot) => {
-      tabla4.innerHTML='';
-      querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${doc.data()}`);
-          tabla4.innerHTML += ` <tr class="table-active">
-         
-          <th scope="col">Localidad</th>
-          <th scope="col">Comunidades</th>
-          <th scope="col">Material</th>
-          <th scope="col">Acumulado</th>
-          <th scope="col">Fecha de registro</th>
-          
-         
-        </tr>
-   
-    <tr>
-    
-    <td scope="row">${doc.data().Region}</td>
-    <td>
-      <p>${doc.data().text2}</p>
-    </td>
-    <td>
-      <p >${doc.data().text1}</p>
-    </td>
-    <td>
-      <p>${doc.data().text4}</p>
-    </td>
-    
-    
-  </tr>
-  <tr>
-    <th>${doc.data().Grado}</th>
-    <td>
-      <p>${doc.data().text3}</p>
-    </td>
-    <td>
-      <p>${doc.data().text}</p>
-    </td>
-    <td>
-      <p>${doc.data().text5}</p>
-    </td>
-    <td>
-      <p>${doc.data().Fecha}</p>
-    </td>
-  </tr>
-  <tr>
-    <th scope="col">Total de recibos:</th>
-    <td>
-      <p>${doc.data().text7}</p>
-    </td>
-  
-    <th>Total de material:</th>
-    <td>
-      <p>${doc.data().text6}</p>
-    </td>
-  </tr>
-  
-  `
-      });
-  });
-
-  var tabla6=document.getElementById('tabla6');
-  db.collection("Material de Secundaria").get().then((querySnapshot) => {
-      tabla6.innerHTML='';
-      querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${doc.data()}`);
-          tabla6.innerHTML += ` <tr class="table-active">
-         
-          <th scope="col">Localidad</th>
-          <th scope="col">Comunidades</th>
-          <th scope="col">Material</th>
-          <th scope="col">Acumulado</th>
-          <th scope="col">Fecha de registro</th>
-          
-         
-        </tr>
-   
-    <tr>
-    
-    <td scope="row">${doc.data().Region}</td>
-    <td>
-      <p>${doc.data().text2}</p>
-    </td>
-    <td>
-      <p >${doc.data().text1}</p>
-    </td>
-    <td>
-      <p>${doc.data().text4}</p>
-    </td>
-    
-    
-  </tr>
-  <tr>
-    <th>${doc.data().Grado}</th>
-    <td>
-      <p>${doc.data().text3}</p>
-    </td>
-    <td>
-      <p>${doc.data().text}</p>
-    </td>
-    <td>
-      <p>${doc.data().text5}</p>
-    </td>
-    <td>
-      <p>${doc.data().Fecha}</p>
-    </td>
-  </tr>
-  <tr>
-    <th scope="col">Total de recibos:</th>
-    <td>
-      <p>${doc.data().text7}</p>
-    </td>
-  
-    <th>Total de material:</th>
-    <td>
-      <p>${doc.data().text6}</p>
-    </td>
-  </tr>
-  
-  `
-      });
-  });
-
-
-
-
-//borrar datos
-
-function Borrar(id){
-    
-
-    db.collection("Material de Preescolar").doc(id).delete().then(() => {
-        alert("Registro borrado exitosamente!");
-        window.location.href = "tabla.html";
-        
-    }).catch((error) => {
-        alert("Error al borrar el registro: ", error);
+$(document).ready(function () {
+  $("#tableSearch").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#tabla4 table").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
-    }
+  });
+});
 
-    function Borrar2(id){
-    
+$(document).ready(function () {
+  $("#tableSearch").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#tabla6 table").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+  });
+});
 
-      db.collection("Material de Primaria").doc(id).delete().then(() => {
-          alert("Registro borrado exitosamente!");
-          window.location.href = "tabla.html";
-          
-      }).catch((error) => {
-          alert("Error al borrar el registro: ", error);
+$(document).ready(function () {
+  $("#tableSearch").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#admin table").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+  });
+});
+// fin de busqueda por palabra clave
+
+// borrar datos
+function Borrar(id) {
+  db.collection("Material de Preescolar")
+    .doc(id)
+    .delete()
+    .then(() => {
+      alert("Registro borrado exitosamente!");
+      window.location.href = "tabla.html";
+    })
+    .catch((error) => {
+      alert("Error al borrar el registro: ", error);
+    });
+}
+
+function Borrar2(id) {
+  db.collection("Material de Primaria")
+    .doc(id)
+    .delete()
+    .then(() => {
+      alert("Registro borrado exitosamente!");
+      window.location.href = "tabla.html";
+    })
+    .catch((error) => {
+      alert("Error al borrar el registro: ", error);
+    });
+}
+
+function Borrar3(id) {
+  db.collection("Material de Secundaria")
+    .doc(id)
+    .delete()
+    .then(() => {
+      alert("Registro borrado exitosamente!");
+      window.location.href = "tabla.html";
+    })
+    .catch((error) => {
+      alert("Error al borrar el registro: ", error);
+    });
+}
+// fin de borrar datos
+
+//Editar datos
+function Editar(id, Region, Fecha) {
+  document.getElementById("region").value = Region;
+  document.getElementById("fecha").value = Fecha;
+
+  var btn = document.getElementById("btn-registrar");
+  btn.innerHTML = "Actualizar";
+
+  btn.onclick = function () {
+    var Ref = db.collection("Material de Preescolar").doc(id);
+
+    var Region = document.getElementById("region").value;
+    var Fecha = document.getElementById("fecha").value;
+
+    return Ref.update({
+      Region: Region,
+      Fecha: Fecha,
+    })
+      .then(() => {
+        alert("Registro actualizado correctamente!");
+
+        btn.innerHTML = "Guardar";
+        document.getElementById("region").value = "";
+        document.getElementById("fecha").value = "";
+        window.location.href = "tabla.html";
+      })
+      .catch((error) => {
+        // The document probably doesn't exist.
+        alert("Error al actualizar el registro: ", error);
       });
-      }
+  };
+}
 
-      function Borrar3(id){
-    
+function Editar2(id, Region, Fecha) {
+  document.getElementById("region").value = Region;
+  document.getElementById("fecha").value = Fecha;
 
-        db.collection("Material de Secundaria").doc(id).delete().then(() => {
-            alert("Registro borrado exitosamente!");
-            window.location.href = "tabla.html";
-            
-        }).catch((error) => {
-            alert("Error al borrar el registro: ", error);
-        });
-        }
-    
-        //Editar datos
-        
-    
-        function Editar(id,Region,Fecha){
-          
-            document.getElementById('region').value=Region;
-            document.getElementById('fecha').value=Fecha;
-            
-            
-        
-            var btn=document.getElementById('btn-registrar');
-            btn.innerHTML='Actualizar';
-            
-            btn.onclick=function(){
-    
-    
-        var Ref = db.collection("Material de Preescolar").doc(id);
-       
-        
-        var Region=document.getElementById('region').value;
-        var Fecha=document.getElementById('fecha').value;
-       
-        
-        return Ref.update({
-          
-            Region:Region,
-        Fecha: Fecha,
-        
-        
-       
-        })
-        .then(() => {
-            alert("Registro actualizado correctamente!");
-            
-            btn.innerHTML='Guardar';
-            document.getElementById('region').value = '';
-            document.getElementById('fecha').value = '';
-            window.location.href = "tabla.html";
-           
-        })
-        .catch((error) => {
-            // The document probably doesn't exist.
-           alert("Error al actualizar el registro: ", error);
-        });
-            }
-    
-        
-        }
+  var btn = document.getElementById("btn-registrar");
+  btn.innerHTML = "Actualizar";
 
-        function Editar2(id,Region,Fecha){
-          
-            document.getElementById('region').value=Region;
-            document.getElementById('fecha').value=Fecha;
-            
-            
-        
-            var btn=document.getElementById('btn-registrar');
-            btn.innerHTML='Actualizar';
-            
-            btn.onclick=function(){
-    
-    
-        var Ref = db.collection("Material de Primaria").doc(id);
-        
-        var Region=document.getElementById('region').value;
-        var Fecha=document.getElementById('fecha').value;
-       
-        
-        return Ref.update({
-       
-            Region:Region,
-        Fecha: Fecha,
-        
-       
-        })
-        .then(() => {
-            alert("Registro actualizado correctamente!");
-            
-            btn.innerHTML='Guardar';
-          
-            document.getElementById('region').value = '';
-            document.getElementById('fecha').value = '';
-            window.location.href = "tabla.html";
-           
-        })
-        .catch((error) => {
-            // The document probably doesn't exist.
-           alert("Error al actualizar el registro: ", error);
-        });
-            }
-    
-        
-        }
+  btn.onclick = function () {
+    var Ref = db.collection("Material de Primaria").doc(id);
 
-        function Editar3(id,Region,Fecha){
-          
-            document.getElementById('region').value=Region;
-            document.getElementById('fecha').value=Fecha;
-            
-            
-        
-            var btn=document.getElementById('btn-registrar');
-            btn.innerHTML='Actualizar';
-            
-            btn.onclick=function(){
-    
-    
-        var Ref = db.collection("Material de Secundaria").doc(id);
-        
-        var Region=document.getElementById('region').value;
-        var Fecha=document.getElementById('fecha').value;
-       
-        
-        return Ref.update({
-          
-            Region:Region,
-        Fecha: Fecha,
-        
-       
-        })
-        .then(() => {
-            alert("Registro actualizado correctamente!");
-            
-            btn.innerHTML='Guardar';
-            
-            document.getElementById('region').value = '';
-            document.getElementById('fecha').value = '';
-            window.location.href = "tabla.html";
-           
-        })
-        .catch((error) => {
-            // The document probably doesn't exist.
-           alert("Error al actualizar el registro: ", error);
-        });
-            }
-    
-        
-        }
+    var Region = document.getElementById("region").value;
+    var Fecha = document.getElementById("fecha").value;
+
+    return Ref.update({
+      Region: Region,
+      Fecha: Fecha,
+    })
+      .then(() => {
+        alert("Registro actualizado correctamente!");
+
+        btn.innerHTML = "Guardar";
+
+        document.getElementById("region").value = "";
+        document.getElementById("fecha").value = "";
+        window.location.href = "tabla.html";
+      })
+      .catch((error) => {
+        // The document probably doesn't exist.
+        alert("Error al actualizar el registro: ", error);
+      });
+  };
+}
+
+function Editar3(id, Region, Fecha) {
+  document.getElementById("region").value = Region;
+  document.getElementById("fecha").value = Fecha;
+
+  var btn = document.getElementById("btn-registrar");
+  btn.innerHTML = "Actualizar";
+
+  btn.onclick = function () {
+    var Ref = db.collection("Material de Secundaria").doc(id);
+
+    var Region = document.getElementById("region").value;
+    var Fecha = document.getElementById("fecha").value;
+
+    return Ref.update({
+      Region: Region,
+      Fecha: Fecha,
+    })
+      .then(() => {
+        alert("Registro actualizado correctamente!");
+
+        btn.innerHTML = "Guardar";
+
+        document.getElementById("region").value = "";
+        document.getElementById("fecha").value = "";
+        window.location.href = "tabla.html";
+      })
+      .catch((error) => {
+        // The document probably doesn't exist.
+        alert("Error al actualizar el registro: ", error);
+      });
+  };
+}
+// fin de Editar datos
