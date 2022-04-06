@@ -238,8 +238,8 @@ db.collection("Material de Preescolar")
         <th scope="col">Clave CCT</th>
         <th scope="col">Destinatario</th>
         <th scope="col">Fecha de registro</th>
-        <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
+        <th scope="col">Editar</th>
        
       </tr>
  
@@ -296,8 +296,8 @@ db.collection("Material de Primaria")
       <th scope="col">Clave CCT</th>
       <th scope="col">Destinatario</th>
       <th scope="col">Fecha de registro</th>
-      <th scope="col">Editar</th>
       <th scope="col">Eliminar</th>
+      <th scope="col">Editar</th>
      
     </tr>
 
@@ -353,8 +353,8 @@ db.collection("Material de Secundaria")
       <th scope="col">Clave CCT</th>
       <th scope="col">Destinatario</th>
       <th scope="col">Fecha de registro</th>
-      <th scope="col">Editar</th>
       <th scope="col">Eliminar</th>
+      <th scope="col">Editar</th>
      
     </tr>
 
