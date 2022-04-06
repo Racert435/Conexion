@@ -233,10 +233,10 @@ db.collection("Material de Preescolar")
         <table  class="table table-dark table-success table-hover  table-bordered">
 
         <tr>
+        <th scope="col">Municipio</th>
         <th scope="col">Localidad</th>
-        <th scope="col">Comunidades</th>
-        <th scope="col">Material</th>
-        <th scope="col">Acumulado</th>
+        <th scope="col">Clave CCT</th>
+        <th scope="col">Destinatario</th>
         <th scope="col">Fecha de registro</th>
         <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
@@ -245,15 +245,15 @@ db.collection("Material de Preescolar")
  
   <tr>
   
-  <td scope="row">${doc.data().Region}</td>
+  <td scope="row">${doc.data().Municipio}</td>
   <td>
-    <p>${doc.data().text2}</p>
+    <p>${doc.data().Region}</p>
   </td>
   <td>
-    <p >${doc.data().text1}</p>
+    <p >${doc.data().Clave}</p>
   </td>
   <td>
-    <p>${doc.data().text4}</p>
+    <a href="#">${doc.data().Grado}</a>
   </td>
   <td>
     <p>${doc.data().Fecha}</p>
@@ -263,32 +263,10 @@ db.collection("Material de Preescolar")
   }');">Eliminar</button></td>
   <td><button class="btn btn-warning" onclick="Editar('${doc.id}','${
         doc.data().Region
-      }','${doc.data().Fecha}')">Editar</button}</td>
+      }','${doc.data().Fecha}','${doc.data().Municipio}','${doc.data().Clave}')">Editar</button}</td>
 </tr>
-<tr>
-  <th>${doc.data().Grado}</th>
-  <td>
-    <p>${doc.data().text3}</p>
-  </td>
-  <td>
-    <p>${doc.data().text}</p>
-  </td>
-  <td>
-    <p>${doc.data().text5}</p>
-  </td>
-</tr>
-<tr>
-  <th scope="col">Total de recibos:</th>
-  <td>
-    <p>${doc.data().text7}</p>
-  </td>
 
-  <th>Total de material:</th>
-  <td>
-    <p>${doc.data().text6}</p>
-  </td>
-</tr>
-<tr>
+
         </table>
         </div>
        
@@ -297,6 +275,7 @@ db.collection("Material de Preescolar")
     });
   });
 // fin de Primera Tabla
+
 
 // segunda tabla
 var tabl = document.getElementById("tabl");
@@ -308,65 +287,43 @@ db.collection("Material de Primaria")
       console.log(`${doc.id} => ${doc.data()}`);
       tabl.innerHTML += `
 
-        <div  class="table-responsive">
-        <table  class="table table-dark table-success table-hover  table-bordered">
-        <tr>
-        <th scope="col">Localidad</th>
-        <th scope="col">Comunidades</th>
-        <th scope="col">Material</th>
-        <th scope="col">Acumulado</th>
-        <th scope="col">Fecha de registro</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Eliminar</th>
-       
-      </tr>
- 
-  <tr>
-  
-  <td scope="row">${doc.data().Region}</td>
-  <td>
-    <p>${doc.data().text2}</p>
-  </td>
-  <td>
-    <p >${doc.data().text1}</p>
-  </td>
-  <td>
-    <p>${doc.data().text4}</p>
-  </td>
-  <td>
-    <p>${doc.data().Fecha}</p>
-  </td>
-  <td><button class="btn btn-danger" onclick="Borrar2('${
-    doc.id
-  }');">Eliminar</button></td>
-  <td><button class="btn btn-warning" onclick="Editar2('${doc.id}','${
-        doc.data().Region
-      }','${doc.data().Fecha}')">Editar</button}</td>
-</tr>
-<tr>
-  <th>${doc.data().Grado}</th>
-  <td>
-    <p>${doc.data().text3}</p>
-  </td>
-  <td>
-    <p>${doc.data().text}</p>
-  </td>
-  <td>
-    <p>${doc.data().text5}</p>
-  </td>
-</tr>
-<tr>
-  <th scope="col">Total de recibos:</th>
-  <td>
-    <p>${doc.data().text7}</p>
-  </td>
+      <div  class="table-responsive">
+      <table  class="table table-dark table-success table-hover  table-bordered">
 
-  <th>Total de material:</th>
-  <td>
-    <p>${doc.data().text6}</p>
-  </td>
-</tr>
+      <tr>
+      <th scope="col">Municipio</th>
+      <th scope="col">Localidad</th>
+      <th scope="col">Clave CCT</th>
+      <th scope="col">Destinatario</th>
+      <th scope="col">Fecha de registro</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Eliminar</th>
+     
+    </tr>
+
 <tr>
+
+<td scope="row">${doc.data().Municipio}</td>
+<td>
+  <p>${doc.data().Region}</p>
+</td>
+<td>
+  <p >${doc.data().Clave}</p>
+</td>
+<td>
+  <a href="#">${doc.data().Grado}</a>
+</td>
+<td>
+  <p>${doc.data().Fecha}</p>
+</td>
+<td><button class="btn btn-danger" onclick="Borrar2('${
+  doc.id
+}');">Eliminar</button></td>
+<td><button class="btn btn-warning" onclick="Editar2('${doc.id}','${
+      doc.data().Region
+    }','${doc.data().Fecha}','${doc.data().Municipio}','${doc.data().Clave}')">Editar</button}</td>
+</tr>
+
         
         </table>
         </div>
@@ -387,65 +344,43 @@ db.collection("Material de Secundaria")
       console.log(`${doc.id} => ${doc.data()}`);
       tab.innerHTML += `
        
-        <div  class="table-responsive">
-        <table  class="table table-dark table-success table-hover  table-bordered">
-        <tr>
-        <th scope="col">Localidad</th>
-        <th scope="col">Comunidades</th>
-        <th scope="col">Material</th>
-        <th scope="col">Acumulado</th>
-        <th scope="col">Fecha de registro</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Eliminar</th>
-       
-      </tr>
- 
-  <tr>
-  
-  <td scope="row">${doc.data().Region}</td>
-  <td>
-    <p>${doc.data().text2}</p>
-  </td>
-  <td>
-    <p >${doc.data().text1}</p>
-  </td>
-  <td>
-    <p>${doc.data().text4}</p>
-  </td>
-  <td>
-    <p>${doc.data().Fecha}</p>
-  </td>
-  <td><button class="btn btn-danger" onclick="Borrar3('${
-    doc.id
-  }');">Eliminar</button></td>
-  <td><button class="btn btn-warning" onclick="Editar3('${doc.id}','${
-        doc.data().Region
-      }','${doc.data().Fecha}')">Editar</button}</td>
-</tr>
-<tr>
-  <th>${doc.data().Grado}</th>
-  <td>
-    <p>${doc.data().text3}</p>
-  </td>
-  <td>
-    <p>${doc.data().text}</p>
-  </td>
-  <td>
-    <p>${doc.data().text5}</p>
-  </td>
-</tr>
-<tr>
-  <th scope="col">Total de recibos:</th>
-  <td>
-    <p>${doc.data().text7}</p>
-  </td>
+      <div  class="table-responsive">
+      <table  class="table table-dark table-success table-hover  table-bordered">
 
-  <th>Total de material:</th>
-  <td>
-    <p>${doc.data().text6}</p>
-  </td>
-</tr>
+      <tr>
+      <th scope="col">Municipio</th>
+      <th scope="col">Localidad</th>
+      <th scope="col">Clave CCT</th>
+      <th scope="col">Destinatario</th>
+      <th scope="col">Fecha de registro</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Eliminar</th>
+     
+    </tr>
+
 <tr>
+
+<td scope="row">${doc.data().Municipio}</td>
+<td>
+  <p>${doc.data().Region}</p>
+</td>
+<td>
+  <p >${doc.data().Clave}</p>
+</td>
+<td>
+  <a href="#">${doc.data().Grado}</a>
+</td>
+<td>
+  <p>${doc.data().Fecha}</p>
+</td>
+<td><button class="btn btn-danger" onclick="Borrar3('${
+  doc.id
+}');">Eliminar</button></td>
+<td><button class="btn btn-warning" onclick="Editar3('${doc.id}','${
+      doc.data().Region
+    }','${doc.data().Fecha}','${doc.data().Municipio}','${doc.data().Clave}')">Editar</button}</td>
+</tr>
+
         
         </table>
         </div>
@@ -904,9 +839,11 @@ function Borrar3(id) {
 // fin de borrar datos
 
 //Editar datos
-function Editar(id, Region, Fecha) {
+function Editar(id, Region, Fecha, Municipio, Clave) {
   document.getElementById("region").value = Region;
   document.getElementById("fecha").value = Fecha;
+  document.getElementById("municipio").value = Municipio;
+  document.getElementById("clave").value = Clave;
 
   var btn = document.getElementById("btn-registrar");
   btn.innerHTML = "Actualizar";
@@ -916,10 +853,14 @@ function Editar(id, Region, Fecha) {
 
     var Region = document.getElementById("region").value;
     var Fecha = document.getElementById("fecha").value;
+    var Municipio = document.getElementById("municipio").value;
+    var Clave = document.getElementById("clave").value;
 
     return Ref.update({
       Region: Region,
       Fecha: Fecha,
+      Municipio:Municipio,
+      Clave:Clave,
     })
       .then(() => {
         alert("Registro actualizado correctamente!");
@@ -927,6 +868,8 @@ function Editar(id, Region, Fecha) {
         btn.innerHTML = "Guardar";
         document.getElementById("region").value = "";
         document.getElementById("fecha").value = "";
+        document.getElementById("municipio").value = "";
+        document.getElementById("clave").value = "";
         window.location.href = "tabla.html";
       })
       .catch((error) => {
@@ -936,9 +879,11 @@ function Editar(id, Region, Fecha) {
   };
 }
 
-function Editar2(id, Region, Fecha) {
+function Editar2(id, Region, Fecha, Municipio, Clave) {
   document.getElementById("region").value = Region;
   document.getElementById("fecha").value = Fecha;
+  document.getElementById("municipio").value = Municipio;
+  document.getElementById("clave").value = Clave;
 
   var btn = document.getElementById("btn-registrar");
   btn.innerHTML = "Actualizar";
@@ -948,18 +893,23 @@ function Editar2(id, Region, Fecha) {
 
     var Region = document.getElementById("region").value;
     var Fecha = document.getElementById("fecha").value;
+    var Municipio = document.getElementById("municipio").value;
+    var Clave = document.getElementById("clave").value;
 
     return Ref.update({
       Region: Region,
       Fecha: Fecha,
+      Municipio:Municipio,
+      Clave:Clave,
     })
       .then(() => {
         alert("Registro actualizado correctamente!");
 
         btn.innerHTML = "Guardar";
-
         document.getElementById("region").value = "";
         document.getElementById("fecha").value = "";
+        document.getElementById("municipio").value = "";
+        document.getElementById("clave").value = "";
         window.location.href = "tabla.html";
       })
       .catch((error) => {
@@ -969,9 +919,11 @@ function Editar2(id, Region, Fecha) {
   };
 }
 
-function Editar3(id, Region, Fecha) {
+function Editar3(id, Region, Fecha, Municipio, Clave) {
   document.getElementById("region").value = Region;
   document.getElementById("fecha").value = Fecha;
+  document.getElementById("municipio").value = Municipio;
+  document.getElementById("clave").value = Clave;
 
   var btn = document.getElementById("btn-registrar");
   btn.innerHTML = "Actualizar";
@@ -981,18 +933,23 @@ function Editar3(id, Region, Fecha) {
 
     var Region = document.getElementById("region").value;
     var Fecha = document.getElementById("fecha").value;
+    var Municipio = document.getElementById("municipio").value;
+    var Clave = document.getElementById("clave").value;
 
     return Ref.update({
       Region: Region,
       Fecha: Fecha,
+      Municipio:Municipio,
+      Clave:Clave,
     })
       .then(() => {
         alert("Registro actualizado correctamente!");
 
         btn.innerHTML = "Guardar";
-
         document.getElementById("region").value = "";
         document.getElementById("fecha").value = "";
+        document.getElementById("municipio").value = "";
+        document.getElementById("clave").value = "";
         window.location.href = "tabla.html";
       })
       .catch((error) => {
