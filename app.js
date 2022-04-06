@@ -261,7 +261,7 @@ db.collection("Material de Preescolar")
   <td><button class="btn btn-danger" onclick="Borrar('${
     doc.id
   }');">Eliminar</button></td>
-  <td><button class="btn btn-warning" onclick="Editar('${doc.id}','${
+  <td><button  class="btn btn-warning" onclick="Editar('${doc.id}','${
         doc.data().Region
       }','${doc.data().Fecha}','${doc.data().Municipio}','${doc.data().Clave}')">Editar</button}</td>
 </tr>
@@ -838,6 +838,8 @@ function Borrar3(id) {
 }
 // fin de borrar datos
 
+
+
 //Editar datos
 function Editar(id, Region, Fecha, Municipio, Clave) {
   document.getElementById("region").value = Region;
@@ -850,7 +852,7 @@ function Editar(id, Region, Fecha, Municipio, Clave) {
 
   btn.onclick = function () {
     var Ref = db.collection("Material de Preescolar").doc(id);
-
+    window.location.href="#location";
     var Region = document.getElementById("region").value;
     var Fecha = document.getElementById("fecha").value;
     var Municipio = document.getElementById("municipio").value;
