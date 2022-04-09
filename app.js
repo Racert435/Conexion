@@ -222,7 +222,7 @@ function guardar2() {
 
 // Primera Tabla
 var tabla = document.getElementById("tabla");
-db.collection("Material de Preescolar")
+db.collection("Material de Preescolar").orderBy('Fecha', 'desc')
   .get()
   .then((querySnapshot) => {
     tabla.innerHTML = "";
@@ -279,7 +279,7 @@ db.collection("Material de Preescolar")
 
 // segunda tabla
 var tabl = document.getElementById("tabl");
-db.collection("Material de Primaria")
+db.collection("Material de Primaria").orderBy('Fecha', 'desc')
   .get()
   .then((querySnapshot) => {
     tabl.innerHTML = "";
@@ -336,7 +336,7 @@ db.collection("Material de Primaria")
 
 // tercera tabla
 var tab = document.getElementById("tab");
-db.collection("Material de Secundaria")
+db.collection("Material de Secundaria").orderBy('Fecha', 'desc')
   .get()
   .then((querySnapshot) => {
     tab.innerHTML = "";
@@ -458,7 +458,7 @@ db.collection("Material de Educacion Basica")
 
 // quinta tabla
 var tabla3 = document.getElementById("tabla3");
-db.collection("Material de Preescolar")
+db.collection("Material de Preescolar").orderBy('Fecha', 'desc')
   .get()
   .then((querySnapshot) => {
     tabla3.innerHTML = "";
@@ -557,7 +557,7 @@ db.collection("Material de Preescolar")
 
 //sexta tabla
 var tabla4 = document.getElementById("tabla4");
-db.collection("Material de Primaria")
+db.collection("Material de Primaria").orderBy('Fecha','desc')
   .get()
   .then((querySnapshot) => {
     tabla4.innerHTML = "";
@@ -659,7 +659,7 @@ db.collection("Material de Primaria")
 
 //septima tabla
 var tabla6 = document.getElementById("tabla6");
-db.collection("Material de Secundaria")
+db.collection("Material de Secundaria").orderBy('Fecha', 'desc')
   .get()
   .then((querySnapshot) => {
     tabla6.innerHTML = "";
@@ -758,6 +758,308 @@ db.collection("Material de Secundaria")
     });
   });
 //fin de septima tabla
+
+var CONTENIDO1 = document.getElementById("CONTENIDO1");
+db.collection("Material de Preescolar").orderBy('Fecha', 'desc').limit(1)
+  .get()
+  .then((querySnapshot) => {
+    CONTENIDO1.innerHTML = "";
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      CONTENIDO1.innerHTML += ` 
+
+          <div class="table-responsive">
+                
+          <table class="table table-success table-hover  table-bordered">
+          <tr  class="table-active">
+        
+          <th scope="col">Localidad</th>
+          <th scope="col">Comunidades</th>
+          <th scope="col">Material</th>
+          <th scope="col">Acumulado</th>
+        
+          
+         
+        </tr>
+   
+    <tr>
+    
+    <td >${doc.data().Region}</td>
+    <td>
+      <p>${doc.data().text2}</p>
+    </td>
+    <td>
+      <p >${doc.data().text1}</p>
+    </td>
+    <td>
+      <p>${doc.data().text4}</p>
+    </td>
+    
+    
+  </tr>
+  <tr>
+    <th></th>
+    <td>
+      <p>${doc.data().text3}</p>
+    </td>
+    <td>
+      <p>${doc.data().text}</p>
+    </td>
+    <td>
+      <p>${doc.data().text5}</p>
+    </td>
+    
+  </tr>
+  <tr>
+    <th scope="col">Total de recibos:</th>
+    <td>
+      <p>${doc.data().text7}</p>
+    </td>
+    
+  
+    <th>Total de material:</th>
+    <td>
+      <p>${doc.data().text6}</p>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="col">Municipio: </th>
+    <td>
+      <p>${doc.data().Municipio}</p>
+    </td>
+    
+  
+    <th>Clave CCT: </th>
+    <td>
+      <p>${doc.data().Clave}</p>
+    </td>
+  </tr>
+
+  <tr>
+  <th scope="col">Destinatario: </th>
+  <td>
+    <a href="Secundaria.html">${doc.data().Grado}</a>
+  </td>
+  
+
+  <th>Fecha de registro: </th>
+  <td>
+    <p>${doc.data().Fecha}</p>
+  </td>
+</tr>
+           
+          </table>
+  
+        </div>
+          
+          
+ 
+  `;
+    });
+  });
+
+  
+var CONTENIDO2 = document.getElementById("CONTENIDO2");
+db.collection("Material de Primaria").orderBy('Fecha', 'desc').limit(1)
+  .get()
+  .then((querySnapshot) => {
+    CONTENIDO2.innerHTML = "";
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      CONTENIDO2.innerHTML += ` 
+
+          <div class="table-responsive">
+                
+          <table class="table table-success table-hover  table-bordered">
+          <tr  class="table-active">
+        
+          <th scope="col">Localidad</th>
+          <th scope="col">Comunidades</th>
+          <th scope="col">Material</th>
+          <th scope="col">Acumulado</th>
+        
+          
+         
+        </tr>
+   
+    <tr>
+    
+    <td >${doc.data().Region}</td>
+    <td>
+      <p>${doc.data().text2}</p>
+    </td>
+    <td>
+      <p >${doc.data().text1}</p>
+    </td>
+    <td>
+      <p>${doc.data().text4}</p>
+    </td>
+    
+    
+  </tr>
+  <tr>
+    <th></th>
+    <td>
+      <p>${doc.data().text3}</p>
+    </td>
+    <td>
+      <p>${doc.data().text}</p>
+    </td>
+    <td>
+      <p>${doc.data().text5}</p>
+    </td>
+    
+  </tr>
+  <tr>
+    <th scope="col">Total de recibos:</th>
+    <td>
+      <p>${doc.data().text7}</p>
+    </td>
+    
+  
+    <th>Total de material:</th>
+    <td>
+      <p>${doc.data().text6}</p>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="col">Municipio: </th>
+    <td>
+      <p>${doc.data().Municipio}</p>
+    </td>
+    
+  
+    <th>Clave CCT: </th>
+    <td>
+      <p>${doc.data().Clave}</p>
+    </td>
+  </tr>
+
+  <tr>
+  <th scope="col">Destinatario: </th>
+  <td>
+    <a href="Secundaria.html">${doc.data().Grado}</a>
+  </td>
+  
+
+  <th>Fecha de registro: </th>
+  <td>
+    <p>${doc.data().Fecha}</p>
+  </td>
+</tr>
+           
+          </table>
+  
+        </div>
+          
+          
+ 
+  `;
+    });
+  });
+
+  var CONTENIDO3 = document.getElementById("CONTENIDO3");
+db.collection("Material de Secundaria").orderBy('Fecha', 'desc').limit(1)
+  .get()
+  .then((querySnapshot) => {
+    CONTENIDO3.innerHTML = "";
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      CONTENIDO3.innerHTML += ` 
+
+          <div class="table-responsive">
+                
+          <table class="table table-success table-hover  table-bordered">
+          <tr  class="table-active">
+        
+          <th scope="col">Localidad</th>
+          <th scope="col">Comunidades</th>
+          <th scope="col">Material</th>
+          <th scope="col">Acumulado</th>
+        
+          
+         
+        </tr>
+   
+    <tr>
+    
+    <td >${doc.data().Region}</td>
+    <td>
+      <p>${doc.data().text2}</p>
+    </td>
+    <td>
+      <p >${doc.data().text1}</p>
+    </td>
+    <td>
+      <p>${doc.data().text4}</p>
+    </td>
+    
+    
+  </tr>
+  <tr>
+    <th></th>
+    <td>
+      <p>${doc.data().text3}</p>
+    </td>
+    <td>
+      <p>${doc.data().text}</p>
+    </td>
+    <td>
+      <p>${doc.data().text5}</p>
+    </td>
+    
+  </tr>
+  <tr>
+    <th scope="col">Total de recibos:</th>
+    <td>
+      <p>${doc.data().text7}</p>
+    </td>
+    
+  
+    <th>Total de material:</th>
+    <td>
+      <p>${doc.data().text6}</p>
+    </td>
+  </tr>
+
+  <tr>
+    <th scope="col">Municipio: </th>
+    <td>
+      <p>${doc.data().Municipio}</p>
+    </td>
+    
+  
+    <th>Clave CCT: </th>
+    <td>
+      <p>${doc.data().Clave}</p>
+    </td>
+  </tr>
+
+  <tr>
+  <th scope="col">Destinatario: </th>
+  <td>
+    <a href="Secundaria.html">${doc.data().Grado}</a>
+  </td>
+  
+
+  <th>Fecha de registro: </th>
+  <td>
+    <p>${doc.data().Fecha}</p>
+  </td>
+</tr>
+           
+          </table>
+  
+        </div>
+          
+          
+ 
+  `;
+    });
+  });
+
 
 // busqueda por palabra clave
 $(document).ready(function () {
