@@ -839,7 +839,7 @@ db.collection("Material de Preescolar").orderBy('Fecha', 'desc').limit(1)
   <tr>
   <th scope="col">Destinatario: </th>
   <td>
-    <a href="Secundaria.html">${doc.data().Grado}</a>
+    <a href="Preescolar.html">${doc.data().Grado}</a>
   </td>
   
 
@@ -940,7 +940,7 @@ db.collection("Material de Primaria").orderBy('Fecha', 'desc').limit(1)
   <tr>
   <th scope="col">Destinatario: </th>
   <td>
-    <a href="Secundaria.html">${doc.data().Grado}</a>
+    <a href="Primaria.html">${doc.data().Grado}</a>
   </td>
   
 
