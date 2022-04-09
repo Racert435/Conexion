@@ -61,29 +61,28 @@
       <!-- formulario -->
       <div class="container my-5 text-center">
           <h1 class="display-4 my-5  my-2">Preescolar</h1>
+          <form class="needs-validation" novalidate>
           <div>
-            <input  class="form-control  my-2   text-center" type="text" placeholder="Municipio" id="municipio"  />
+            <input  class="form-control  my-2   text-center" type="text" placeholder="Municipio" id="municipio"  required/>
           </div>
           <div>
-          <input  class="form-control  my-2   text-center" type="text" placeholder="Localidad" id="region" />
+          <input  class="form-control  my-2   text-center" type="text" placeholder="Localidad" id="region" required/>
         </div>
         <div>
-          <input  class="form-control  my-2  text-center " type="text" placeholder="Clave CCT" id="clave" />
+          <input  class="form-control  my-2  text-center " type="text" placeholder="Clave CCT" id="clave" required/>
         </div>
         
           <div>
-          <input  class="form-control  my-2  text-center " type="number" placeholder="Material" id="num1" />
+          <input  class="form-control  my-2  text-center " type="number" placeholder="Material" id="num1" required/>
         </div>
-
-        
-        
         <div>
-        <input class="form-control  my-2  text-center" type="number" placeholder="Recibos" id="num2" />
+        <input class="form-control  my-2  text-center" type="number" placeholder="Recibos" id="num2" required/>
       </div>
         <div>
           <span   class="input-group-text ">Selecciona una fecha de registro:</span>
-        <input class="form-control my-2 "  id="fecha" type="date" /> 
+        <input class="form-control my-2 "  id="fecha" type="date" required/> 
       </div>
+      </form>
         <div>
         <button
         id="imprimir2"

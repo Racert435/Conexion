@@ -1567,3 +1567,421 @@ db.collection("Material de Secundaria").orderBy('Fecha', 'desc')
     });
   });
 //fin de septima tabla
+
+const botonAnterior = document.getElementById('botonAnterior');
+const botonSiguiente = document.getElementById('botonSiguiente');
+const botonAnterior2 = document.getElementById('botonAnterior2');
+const botonSiguiente2 = document.getElementById('botonSiguiente2');
+const botonAnterior3 = document.getElementById('botonAnterior3');
+const botonSiguiente3 = document.getElementById('botonSiguiente3');
+const contenedorCards = document.getElementById('cards');
+const contenedorCards2 = document.getElementById('cards2');
+const contenedorCards3 = document.getElementById('cards3');
+
+
+let ultimoDoc = null;
+let primerDoc = null;
+let ultimoDoc2 = null;
+let primerDoc2 = null;
+let ultimoDoc3 = null;
+let primerDoc3 = null;
+
+
+const cargarDocumentos = (documentos) => {
+	if(documentos.length > 0){
+		ultimoDoc = documentos[documentos.length - 1];
+		primerDoc = documentos[0];
+		contenedorCards.innerHTML = '';
+		documentos.forEach(doc => {
+			contenedorCards.innerHTML += `
+				
+<div class="table-responsive">
+                
+<table class="table table-success table-hover  table-bordered">
+<tr  class="table-active">
+
+<th scope="col">Localidad</th>
+<th scope="col">Comunidades</th>
+<th scope="col">Material</th>
+<th scope="col">Acumulado</th>
+
+
+
+</tr>
+
+<tr>
+
+<td >${doc.data().Region}</td>
+<td>
+<p>${doc.data().text2}</p>
+</td>
+<td>
+<p >${doc.data().text1}</p>
+</td>
+<td>
+<p>${doc.data().text4}</p>
+</td>
+
+
+</tr>
+<tr>
+<th></th>
+<td>
+<p>${doc.data().text3}</p>
+</td>
+<td>
+<p>${doc.data().text}</p>
+</td>
+<td>
+<p>${doc.data().text5}</p>
+</td>
+
+</tr>
+<tr>
+<th scope="col">Total de recibos:</th>
+<td>
+<p>${doc.data().text7}</p>
+</td>
+
+
+<th>Total de material:</th>
+<td>
+<p>${doc.data().text6}</p>
+</td>
+</tr>
+
+<tr>
+<th scope="col">Municipio: </th>
+<td>
+<p>${doc.data().Municipio}</p>
+</td>
+
+
+<th>Clave CCT: </th>
+<td>
+<p>${doc.data().Clave}</p>
+</td>
+</tr>
+
+<tr>
+<th scope="col">Destinatario: </th>
+<td>
+<a href="Preescolar.html">${doc.data().Grado}</a>
+</td>
+
+
+<th>Fecha de registro: </th>
+<td>
+<p>${doc.data().Fecha}</p>
+</td>
+</tr>
+ 
+</table>
+
+</div>
+			`;
+		});
+	}
+}
+
+const cargarDocumentos2 = (documentos2) => {
+	if(documentos2.length > 0){
+		ultimoDoc2 = documentos2[documentos2.length - 1];
+		primerDoc2 = documentos2[0];
+		contenedorCards2.innerHTML = '';
+		documentos2.forEach(doc => {
+			contenedorCards2.innerHTML += `
+				
+<div class="table-responsive">
+                
+<table class="table table-success table-hover  table-bordered">
+<tr  class="table-active">
+
+<th scope="col">Localidad</th>
+<th scope="col">Comunidades</th>
+<th scope="col">Material</th>
+<th scope="col">Acumulado</th>
+
+
+
+</tr>
+
+<tr>
+
+<td >${doc.data().Region}</td>
+<td>
+<p>${doc.data().text2}</p>
+</td>
+<td>
+<p >${doc.data().text1}</p>
+</td>
+<td>
+<p>${doc.data().text4}</p>
+</td>
+
+
+</tr>
+<tr>
+<th></th>
+<td>
+<p>${doc.data().text3}</p>
+</td>
+<td>
+<p>${doc.data().text}</p>
+</td>
+<td>
+<p>${doc.data().text5}</p>
+</td>
+
+</tr>
+<tr>
+<th scope="col">Total de recibos:</th>
+<td>
+<p>${doc.data().text7}</p>
+</td>
+
+
+<th>Total de material:</th>
+<td>
+<p>${doc.data().text6}</p>
+</td>
+</tr>
+
+<tr>
+<th scope="col">Municipio: </th>
+<td>
+<p>${doc.data().Municipio}</p>
+</td>
+
+
+<th>Clave CCT: </th>
+<td>
+<p>${doc.data().Clave}</p>
+</td>
+</tr>
+
+<tr>
+<th scope="col">Destinatario: </th>
+<td>
+<a href="Primaria.html">${doc.data().Grado}</a>
+</td>
+
+
+<th>Fecha de registro: </th>
+<td>
+<p>${doc.data().Fecha}</p>
+</td>
+</tr>
+ 
+</table>
+
+</div>
+			`;
+		});
+	}
+}
+
+const cargarDocumentos3 = (documentos3) => {
+	if(documentos3.length > 0){
+		ultimoDoc3 = documentos3[documentos3.length - 1];
+		primerDoc3 = documentos3[0];
+		contenedorCards3.innerHTML = '';
+		documentos3.forEach(doc => {
+			contenedorCards3.innerHTML += `
+				
+<div class="table-responsive">
+                
+<table class="table table-success table-hover  table-bordered">
+<tr  class="table-active">
+
+<th scope="col">Localidad</th>
+<th scope="col">Comunidades</th>
+<th scope="col">Material</th>
+<th scope="col">Acumulado</th>
+
+
+
+</tr>
+
+<tr>
+
+<td >${doc.data().Region}</td>
+<td>
+<p>${doc.data().text2}</p>
+</td>
+<td>
+<p >${doc.data().text1}</p>
+</td>
+<td>
+<p>${doc.data().text4}</p>
+</td>
+
+
+</tr>
+<tr>
+<th></th>
+<td>
+<p>${doc.data().text3}</p>
+</td>
+<td>
+<p>${doc.data().text}</p>
+</td>
+<td>
+<p>${doc.data().text5}</p>
+</td>
+
+</tr>
+<tr>
+<th scope="col">Total de recibos:</th>
+<td>
+<p>${doc.data().text7}</p>
+</td>
+
+
+<th>Total de material:</th>
+<td>
+<p>${doc.data().text6}</p>
+</td>
+</tr>
+
+<tr>
+<th scope="col">Municipio: </th>
+<td>
+<p>${doc.data().Municipio}</p>
+</td>
+
+
+<th>Clave CCT: </th>
+<td>
+<p>${doc.data().Clave}</p>
+</td>
+</tr>
+
+<tr>
+<th scope="col">Destinatario: </th>
+<td>
+<a href="Secundaria.html">${doc.data().Grado}</a>
+</td>
+
+
+<th>Fecha de registro: </th>
+<td>
+<p>${doc.data().Fecha}</p>
+</td>
+</tr>
+ 
+</table>
+
+</div>
+			`;
+		});
+	}
+}
+
+db.collection('Material de Preescolar').orderBy('Fecha', 'desc').limit(1).onSnapshot((snapshot) => {
+	// console.log(snapshot.docs[0].data());
+
+	cargarDocumentos(snapshot.docs);
+});
+
+db.collection('Material de Primaria').orderBy('Fecha', 'desc').limit(1).onSnapshot((snapshot) => {
+	// console.log(snapshot.docs[0].data());
+
+	cargarDocumentos2(snapshot.docs);
+});
+
+db.collection('Material de Secundaria').orderBy('Fecha', 'desc').limit(1).onSnapshot((snapshot) => {
+	// console.log(snapshot.docs[0].data());
+
+	cargarDocumentos3(snapshot.docs);
+});
+
+botonAnterior.addEventListener('click', () => {
+	db
+		.collection('Material de Preescolar')
+		.orderBy('Fecha', 'asc')
+		.limit(1)
+		.startAfter(primerDoc)
+		.onSnapshot((snapshot) => {
+			const documentos = snapshot.docs.reverse();
+			cargarDocumentos(documentos);
+		}
+	);
+});
+
+botonSiguiente.addEventListener('click', () => {
+	db
+		.collection('Material de Preescolar')
+		.orderBy('Fecha', 'desc')
+		.limit(1)
+		.startAfter(ultimoDoc)
+		.onSnapshot((snapshot) => {
+			cargarDocumentos(snapshot.docs);
+		}
+	);
+});
+
+botonAnterior2.addEventListener('click', () => {
+	db
+		.collection('Material de Primaria')
+		.orderBy('Fecha', 'asc')
+		.limit(1)
+		.startAfter(primerDoc2)
+		.onSnapshot((snapshot) => {
+			const documentos2 = snapshot.docs.reverse();
+			cargarDocumentos2(documentos2);
+		}
+	);
+});
+
+botonSiguiente2.addEventListener('click', () => {
+	db
+		.collection('Material de Primaria')
+		.orderBy('Fecha', 'desc')
+		.limit(1)
+		.startAfter(ultimoDoc2)
+		.onSnapshot((snapshot) => {
+			cargarDocumentos2(snapshot.docs);
+		}
+	);
+});
+
+botonAnterior3.addEventListener('click', () => {
+	db
+		.collection('Material de Secundaria')
+		.orderBy('Fecha', 'asc')
+		.limit(1)
+		.startAfter(primerDoc3)
+		.onSnapshot((snapshot) => {
+			const documentos3 = snapshot.docs.reverse();
+			cargarDocumentos3(documentos3);
+		}
+	);
+});
+
+botonSiguiente3.addEventListener('click', () => {
+	db
+		.collection('Material de Secundaria')
+		.orderBy('Fecha', 'desc')
+		.limit(1)
+		.startAfter(ultimoDoc3)
+		.onSnapshot((snapshot) => {
+			cargarDocumentos3(snapshot.docs);
+		}
+	);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
