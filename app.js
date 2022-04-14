@@ -1596,14 +1596,14 @@ const cargarDocumentos = (documentos) => {
 			contenedorCards.innerHTML += `
 				
 <div class="table-responsive">
-                
-<table class="table table-success table-hover  table-bordered">
+              
+<table class="table table-danger table-hover  table-bordered">
 <tr  class="table-active">
 
+<th scope="col">Municipio</th>
 <th scope="col">Localidad</th>
-<th scope="col">Comunidades</th>
-<th scope="col">Material</th>
-<th scope="col">Acumulado</th>
+<th scope="col">Destinatario</th>
+
 
 
 
@@ -1611,70 +1611,41 @@ const cargarDocumentos = (documentos) => {
 
 <tr>
 
-<td >${doc.data().Region}</td>
+<td>${doc.data().Municipio}</td>
 <td>
-<p>${doc.data().text2}</p>
+<p>${doc.data().Region}</p>
 </td>
-<td>
-<p >${doc.data().text1}</p>
-</td>
-<td>
-<p>${doc.data().text4}</p>
-</td>
-
-
-</tr>
-<tr>
-<th></th>
-<td>
-<p>${doc.data().text3}</p>
-</td>
-<td>
-<p>${doc.data().text}</p>
-</td>
-<td>
-<p>${doc.data().text5}</p>
-</td>
-
-</tr>
-<tr>
-<th scope="col">Total de recibos:</th>
-<td>
-<p>${doc.data().text7}</p>
-</td>
-
-
-<th>Total de material:</th>
-<td>
-<p>${doc.data().text6}</p>
-</td>
-</tr>
-
-<tr>
-<th scope="col">Municipio: </th>
-<td>
-<p>${doc.data().Municipio}</p>
-</td>
-
-
-<th>Clave CCT: </th>
-<td>
-<p>${doc.data().Clave}</p>
-</td>
-</tr>
-
-<tr>
-<th scope="col">Destinatario: </th>
 <td>
 <a href="Preescolar.html">${doc.data().Grado}</a>
+
 </td>
 
 
-<th>Fecha de registro: </th>
+
+</tr>
+
+<tr  class="table-active">
+
+<th scope="col">Clave CCT</th>
+<th scope="col">Ultima fecha de registro</th>
+
+
+
+</tr>
+
+<tr>
+
+
+<td>
+<p >${doc.data().Clave}</p>
+</td>
 <td>
 <p>${doc.data().Fecha}</p>
 </td>
+
+
 </tr>
+
  
 </table>
 
@@ -1692,90 +1663,61 @@ const cargarDocumentos2 = (documentos2) => {
 		documentos2.forEach(doc => {
 			contenedorCards2.innerHTML += `
 				
-<div class="table-responsive">
-                
-<table class="table table-success table-hover  table-bordered">
-<tr  class="table-active">
-
-<th scope="col">Localidad</th>
-<th scope="col">Comunidades</th>
-<th scope="col">Material</th>
-<th scope="col">Acumulado</th>
-
-
-
-</tr>
-
-<tr>
-
-<td >${doc.data().Region}</td>
-<td>
-<p>${doc.data().text2}</p>
-</td>
-<td>
-<p >${doc.data().text1}</p>
-</td>
-<td>
-<p>${doc.data().text4}</p>
-</td>
-
-
-</tr>
-<tr>
-<th></th>
-<td>
-<p>${doc.data().text3}</p>
-</td>
-<td>
-<p>${doc.data().text}</p>
-</td>
-<td>
-<p>${doc.data().text5}</p>
-</td>
-
-</tr>
-<tr>
-<th scope="col">Total de recibos:</th>
-<td>
-<p>${doc.data().text7}</p>
-</td>
-
-
-<th>Total de material:</th>
-<td>
-<p>${doc.data().text6}</p>
-</td>
-</tr>
-
-<tr>
-<th scope="col">Municipio: </th>
-<td>
-<p>${doc.data().Municipio}</p>
-</td>
-
-
-<th>Clave CCT: </th>
-<td>
-<p>${doc.data().Clave}</p>
-</td>
-</tr>
-
-<tr>
-<th scope="col">Destinatario: </th>
-<td>
-<a href="Primaria.html">${doc.data().Grado}</a>
-</td>
-
-
-<th>Fecha de registro: </th>
-<td>
-<p>${doc.data().Fecha}</p>
-</td>
-</tr>
- 
-</table>
-
-</div>
+      <div class="table-responsive">
+              
+      <table class="table table-primary  table-hover  table-bordered">
+      <tr  class="table-active">
+      
+      <th scope="col">Municipio</th>
+      <th scope="col">Localidad</th>
+      <th scope="col">Destinatario</th>
+      
+      
+      
+      
+      </tr>
+      
+      <tr>
+      
+      <td >${doc.data().Municipio}</td>
+      <td>
+      <p>${doc.data().Region}</p>
+      </td>
+      <td>
+      <a href="Primaria.html">${doc.data().Grado}</a>
+      
+      </td>
+      
+      
+      
+      </tr>
+      
+      <tr  class="table-active">
+      
+      <th scope="col">Clave CCT</th>
+      <th scope="col">Ultima fecha de registro</th>
+      
+      
+      
+      </tr>
+      
+      <tr>
+      
+      
+      <td>
+      <p >${doc.data().Clave}</p>
+      </td>
+      <td>
+      <p>${doc.data().Fecha}</p>
+      </td>
+      
+      
+      </tr>
+      
+       
+      </table>
+      
+      </div>
 			`;
 		});
 	}
@@ -1789,15 +1731,15 @@ const cargarDocumentos3 = (documentos3) => {
 		documentos3.forEach(doc => {
 			contenedorCards3.innerHTML += `
 				
-<div class="table-responsive">
-                
-<table class="table table-success table-hover  table-bordered">
+      <div class="table-responsive">
+              
+<table class="table table-secondary table-hover  table-bordered">
 <tr  class="table-active">
 
+<th scope="col">Municipio</th>
 <th scope="col">Localidad</th>
-<th scope="col">Comunidades</th>
-<th scope="col">Material</th>
-<th scope="col">Acumulado</th>
+<th scope="col">Destinatario</th>
+
 
 
 
@@ -1805,70 +1747,41 @@ const cargarDocumentos3 = (documentos3) => {
 
 <tr>
 
-<td >${doc.data().Region}</td>
+<td >${doc.data().Municipio}</td>
 <td>
-<p>${doc.data().text2}</p>
+<p>${doc.data().Region}</p>
 </td>
-<td>
-<p >${doc.data().text1}</p>
-</td>
-<td>
-<p>${doc.data().text4}</p>
-</td>
-
-
-</tr>
-<tr>
-<th></th>
-<td>
-<p>${doc.data().text3}</p>
-</td>
-<td>
-<p>${doc.data().text}</p>
-</td>
-<td>
-<p>${doc.data().text5}</p>
-</td>
-
-</tr>
-<tr>
-<th scope="col">Total de recibos:</th>
-<td>
-<p>${doc.data().text7}</p>
-</td>
-
-
-<th>Total de material:</th>
-<td>
-<p>${doc.data().text6}</p>
-</td>
-</tr>
-
-<tr>
-<th scope="col">Municipio: </th>
-<td>
-<p>${doc.data().Municipio}</p>
-</td>
-
-
-<th>Clave CCT: </th>
-<td>
-<p>${doc.data().Clave}</p>
-</td>
-</tr>
-
-<tr>
-<th scope="col">Destinatario: </th>
 <td>
 <a href="Secundaria.html">${doc.data().Grado}</a>
+
 </td>
 
 
-<th>Fecha de registro: </th>
+
+</tr>
+
+<tr  class="table-active">
+
+<th scope="col">Clave CCT</th>
+<th scope="col">Ultima fecha de registro</th>
+
+
+
+</tr>
+
+<tr>
+
+
+<td>
+<p >${doc.data().Clave}</p>
+</td>
 <td>
 <p>${doc.data().Fecha}</p>
 </td>
+
+
 </tr>
+
  
 </table>
 

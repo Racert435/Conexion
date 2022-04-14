@@ -10,13 +10,29 @@
 h1{
     text-align: center;
 }
+h3{
+  text-align: center;
+}
+h5{
+  text-align: center;
+}
+p{
+  text-align: center;
+}
+
+td{
+  text-align: center;
+}
+
+tr{
+  text-align: center;
+}
 
 #logo2{
     
     width: auto;
-    height: 50px;
-    display:block;
-    margin:auto;
+    height: auto;
+    
     
 }
 
