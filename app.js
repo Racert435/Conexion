@@ -35,7 +35,10 @@ function guardar() {
   text6 = Comprobacion;
   text7 = Comprobacion2;
 
-  db.collection("Material de Preescolar")
+  if(Region == "" || x == "" || y == "" || Fecha == "" || Municipio == "" || Clave == ""){
+    alert("Completa todos los campos")
+  }else{
+    db.collection("Material de Preescolar")
     .add({
       Grado: Grado,
       Region: Region,
@@ -68,6 +71,8 @@ function guardar() {
       console.error("Error al guardar el registro: ", error);
     });
 
+  }
+  
   document.getElementById("Cargando").innerHTML = text;
   document.getElementById("Distribuir").innerHTML = text1;
   document.getElementById("Distribuir1").innerHTML = text2;
@@ -106,7 +111,10 @@ function guardar1() {
   text6 = Comprobacion;
   text7 = Comprobacion2;
 
-  db.collection("Material de Primaria")
+  if(Region == "" || x == "" || y == "" || Fecha == "" || Municipio == "" || Clave == ""){
+    alert("Completa todos los campos")
+  }else{
+    db.collection("Material de Primaria")
     .add({
       Grado: Grado,
       Region: Region,
@@ -138,6 +146,9 @@ function guardar1() {
     .catch((error) => {
       console.error("Error al guardar el registro: ", error);
     });
+  }
+
+ 
 
   document.getElementById("Cargando").innerHTML = text;
   document.getElementById("Distribuir").innerHTML = text1;
@@ -177,7 +188,10 @@ function guardar2() {
   text6 = Comprobacion;
   text7 = Comprobacion2;
 
-  db.collection("Material de Secundaria")
+  if(Region == "" || x == "" || y == "" || Fecha == "" || Municipio == "" || Clave == ""){
+    alert("Completa todos los campos")
+  }else{
+    db.collection("Material de Secundaria")
     .add({
       Grado: Grado,
       Region: Region,
@@ -209,6 +223,9 @@ function guardar2() {
     .catch((error) => {
       console.error("Error al guardar el registro: ", error);
     });
+  }
+
+  
 
   document.getElementById("Cargando").innerHTML = text;
   document.getElementById("Distribuir").innerHTML = text1;
